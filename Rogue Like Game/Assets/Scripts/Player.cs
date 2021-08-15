@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -79,5 +80,25 @@ public class Player : MonoBehaviour
     public void OnAttackRight(InputAction.CallbackContext context)
     {
 
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHP -= damage;
+        StartCoroutine(DamageFlash());
+
+        if (currentHP <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    IEnumerator DamageFlash()
+    {
+        Color defaultColor = spriteRenderer.color;
+        spriteRenderer.color = Color.white;
+
+        yield return new WaitForSeconds(0.05f);
+        spriteRenderer.color = defaultColor;
     }
 }

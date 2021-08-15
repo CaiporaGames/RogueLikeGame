@@ -8,6 +8,7 @@ public class Generation : MonoBehaviour
     public int mapHeight = 7;
     public int roomsToGenerate = 12;
     public GameObject roomPrefab;
+    public GameObject player;
 
     int roomCount;
     bool roomsInstantiated;
@@ -36,7 +37,6 @@ public class Generation : MonoBehaviour
 
         CheckRoom(3,3,0,Vector2.zero,true);
         InstantiateRooms();
-        FindObjectOfType<Player>().transform.position = firstRoomPos
     }
 
     void CheckRoom(int x, int y, int remaining, Vector2 generalDirection, bool firstRoom = false)
@@ -60,6 +60,7 @@ public class Generation : MonoBehaviour
         if (firstRoom == true)
         {
             firstRoomPos = new Vector2(x,y);
+            Instantiate(player, firstRoomPos * 12, Quaternion.identity);
         }
 
         roomCount++;
@@ -93,7 +94,60 @@ public class Generation : MonoBehaviour
 
     void InstantiateRooms()
     {
+        if (roomsInstantiated)
+        {
+            return;
+        }
 
+        roomsInstantiated = true;
+
+        for (int x = 0; x < mapWidth; x++)
+        {
+            for (int y = 0; y < mapHeight; y++)
+            {
+                if (map[x,y] == false)
+                {
+                    continue;
+                }
+
+                GameObject roomObj = Instantiate(roomPrefab,new Vector3(x, y, 0) * 12, Quaternion.identity);
+                Room room = roomObj.GetComponent<Room>();
+
+                if (y < mapHeight - 1 && map[x, y + 1] == true)
+                {
+                    room.northDoor.gameObject.SetActive(true);
+                    room.northWall.gameObject.SetActive(false);
+                }
+
+                if (y > 0 && map[x,y - 1] == true)
+                {
+                    room.southDoor.gameObject.SetActive(true);
+                    room.southWall.gameObject.SetActive(false);
+                }
+
+                if (x < mapWidth - 1 && map[x + 1, y] == true)
+                {
+                    room.eastDoor.gameObject.SetActive(true);
+                    room.eastWall.gameObject.SetActive(false);
+                }
+
+
+                if (x > 0 && map[x - 1, y] == true)
+                {
+                    room.westDoor.gameObject.SetActive(true);
+                    room.westWall.gameObject.SetActive(false);
+                }
+
+                if (firstRoomPos != new Vector2(x,y))
+                {
+                    room.GenerateInterior();
+                }
+
+                roomObjects.Add(room);
+            }
+        }
+
+        CalculateKeyAndExit();
     }
 
     void CalculateKeyAndExit()
