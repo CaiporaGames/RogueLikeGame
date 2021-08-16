@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1609701073}
   - component: {fileID: 1609701072}
+  - component: {fileID: 1609701074}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -171,81 +172,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2354493897357512170
-PrefabInstance:
+--- !u!114 &1609701074
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3887471342186050175, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3887471342186050175, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: health
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3887471342186050175, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: spriteRenderer
-      value: 
-      objectReference: {fileID: 2354493897357512171}
-    - target: {fileID: 3887471342186050175, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: layerMask.m_Bits
-      value: 375
-      objectReference: {fileID: 0}
-    - target: {fileID: 7501943314291948311, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7501943314291948311, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7501943314291948311, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7501943314291948311, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7501943314291948311, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7501943314291948311, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7501943314291948311, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7501943314291948311, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7501943314291948311, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7501943314291948311, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7501943314291948311, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8361081040459451260, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
---- !u!212 &2354493897357512171 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2533607451502876764, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}
-  m_PrefabInstance: {fileID: 2354493897357512170}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609701071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 361e01478c8943a419f17c34e698d4b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 3887471342186050175, guid: e062d95618df65e42b5a01c122a52dbc, type: 3}

@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         spriteRenderer.color = defaultColor;
     }
 
-    public void OnAnimatorMove()
+    public void Move()
     {
         if (Random.value < 0.5f)
         {
@@ -74,6 +74,7 @@ public class Enemy : MonoBehaviour
         transform.position += direction;
     }
 
+   
     Vector3 GetRandomDirection()
     {
         int random = Random.Range(0,4);

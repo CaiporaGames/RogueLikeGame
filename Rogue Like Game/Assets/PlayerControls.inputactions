@@ -140,7 +140,7 @@
                 {
                     "name": "",
                     "id": "8351880c-8421-4fd0-b75e-34378a68f06b",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -151,7 +151,7 @@
                 {
                     "name": "",
                     "id": "1ecc64de-b5d4-4cd4-ae84-df528e454b52",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
