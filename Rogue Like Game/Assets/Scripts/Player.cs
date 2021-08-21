@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         if (hit.collider == null)
         {
             transform.position += new Vector3(direction.x, direction.y, 0);
-            EnemyManager.instance.OnPlayMove();
+            EnemyManager.instance.OnPlayerMove();
         }
     }
 
@@ -109,6 +109,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
+        UI.instance.UpdateHealth(currentHP);
         StartCoroutine(DamageFlash());
 
         if (currentHP <= 0)
@@ -129,6 +130,7 @@ public class Player : MonoBehaviour
     public void AddCoins(int amount)
     {
         coins += amount;
+        UI.instance.UpdateCoinText(coins);
     }
 
     public bool AddHealth(int amount)
@@ -136,6 +138,7 @@ public class Player : MonoBehaviour
         if (currentHP + amount <= maxHp)
         {
             currentHP += amount;
+            UI.instance.UpdateHealth(currentHP);
             return true;
         }
 

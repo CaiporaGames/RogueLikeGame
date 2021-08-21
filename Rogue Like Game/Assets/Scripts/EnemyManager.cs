@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-
     public List<Enemy> enemies = new List<Enemy>();
 
     public static EnemyManager instance;
-    // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
         instance = this;
     }
-    
-    public void OnPlayMove()
+
+    // called when the player moves
+    public void OnPlayerMove()
     {
         StartCoroutine(MoveEnemies());
     }
 
+    // randomly moves all the enemies
     IEnumerator MoveEnemies()
     {
         yield return new WaitForFixedUpdate();
@@ -26,10 +27,7 @@ public class EnemyManager : MonoBehaviour
         foreach (Enemy enemy in enemies)
         {
             if (enemy != null)
-            {
                 enemy.Move();
-            }
         }
-
     }
 }

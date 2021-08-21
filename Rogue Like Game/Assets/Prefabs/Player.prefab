@@ -131,8 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8750ed4740b25458508cf8aba9d3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 0
-  maxHp: 0
+  currentHP: 6
+  maxHp: 6
   coins: 0
   hasKey: 0
   moveLayerMask:
