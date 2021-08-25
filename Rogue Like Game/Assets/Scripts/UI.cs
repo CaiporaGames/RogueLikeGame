@@ -37,7 +37,7 @@ public class UI : MonoBehaviour
         keyIcon.SetActive(toggle);
     }
 
-    public void UpdateLevelIndex(int level)
+    public void UpdateLevelText(int level)
     {
         levelText.text = "Level: " + level;
     }

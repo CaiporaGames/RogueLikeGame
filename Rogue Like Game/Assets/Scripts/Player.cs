@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     void Move(Vector2 direction)
@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
         {
             transform.position += new Vector3(direction.x, direction.y, 0);
             EnemyManager.instance.OnPlayerMove();
+            Generation.instance.OnPlayerMove();
         }
     }
 

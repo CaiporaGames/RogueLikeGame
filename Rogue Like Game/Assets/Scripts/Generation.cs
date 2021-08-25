@@ -12,6 +12,7 @@ public class Generation : MonoBehaviour
 
     int roomCount;
     bool roomsInstantiated;
+    Transform playerPosition;
 
     Vector2 firstRoomPos;
 
@@ -32,11 +33,14 @@ public class Generation : MonoBehaviour
     {
         instance = this;
     }
+      
 
-    private void Start()
+     public void OnPlayerMove()
     {
-        Random.InitState(12);
-        Generate();
+        Vector2 playerPos = playerPosition.position;
+        Vector2 roomPos = new Vector2(((int)playerPos.x + 6)/12, ((int)playerPos.y + 6) / 12);
+
+        UI.instance.map.texture = MapTextureGenerator.GenerateMap(map, roomPos);
     }
 
     public void Generate()
@@ -45,6 +49,8 @@ public class Generation : MonoBehaviour
 
         CheckRoom(3,3,0,Vector2.zero,true);
         InstantiateRooms();
+
+        UI.instance.map.texture = MapTextureGenerator.GenerateMap(map, firstRoomPos);
     }
 
     void CheckRoom(int x, int y, int remaining, Vector2 generalDirection, bool firstRoom = false)
@@ -68,7 +74,9 @@ public class Generation : MonoBehaviour
         if (firstRoom == true)
         {
             firstRoomPos = new Vector2(x,y);
-            Instantiate(player, firstRoomPos * 12, Quaternion.identity);
+            GameObject instance = Instantiate(player, firstRoomPos * 12, Quaternion.identity);
+            playerPosition = instance.transform;
+
         }
 
         roomCount++;

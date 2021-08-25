@@ -10,7 +10,7 @@ public class ExitDoor : MonoBehaviour
         {
             if (collision.GetComponent<Player>().hasKey)
             {
-                Debug.Log("door");
+                GameManager.instance.GoToNextLevel();
             }
         }
     }
